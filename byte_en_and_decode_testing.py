@@ -1,0 +1,1 @@
+print(b'\x00\x00\x00'.decode('utf-8'))
