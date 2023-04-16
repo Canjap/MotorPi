@@ -1,3 +1,4 @@
+#a simpler test for the motorPi, no socket py
 while True:
         data = conn.recv(1024) #change to "action" when configuring w mycroftPi
         if not data:
