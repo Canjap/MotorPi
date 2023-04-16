@@ -40,14 +40,20 @@ try:
     conn, addr = server.accept() 
     print("connected by {}".format(addr))
     numseeds = conn.recv(1024).decode('utf-8') #saves numseeds as whatever value the server gets from the client/Mycroft Pi
-    print(numseeds)
-    motorPi.forward(0.5) #moves forward at 50% top speed, can be changed from 0-1
-    relay.on() #turns the relay -> valve opens
-    sleep(3) #waits three seconds 
+    numseeds = int(numseeds)
+    for x in range(numseeds):
+        relay.on()
+        sleep(4)
+        relay.off()
+        motorPi.forward(0.6) #moves forward, can be changed from 0-1
+        sleep(2)
+        motorPi.stop() 
+    sleep(2)#waits three seconds 
 except Exception as e:
     print(e)
 finally:
-    print ("finished")
     motorPi.stop() #stops the motors
     relay.off()
+    print ("finished")
+
     #gpiozero automatically cleans up the GPIO pins

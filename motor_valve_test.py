@@ -1,6 +1,6 @@
 from gpiozero import Robot #library and class that controls the motors; works similarly to RPi.GPIO, but with less explciit pin control
 from gpiozero import OutputDevice #controls the Relay HAT
-
+from time import sleep
 '''
 sets the Relay HAT as an OutputDevice #(a more general class in gpiozero) and controls pin 26 (BCM, 37 on BOARD).
 active_high = False: when the on() method is called, the on() method will set pin 26 to HIGH and the valve will open
@@ -16,8 +16,10 @@ right=(9,10): controls the GPIO 9 and 10 pins
 motorPi = Robot(left=(7,8), right=(9,10)) #numbers are the GPIO pins controlling the R or L motor
 
 try:
-    motorPi.forward(0.5) #motors roll forward
-    relay.on() #solenoid opens
+    motorPi.forward(0.5)#motors roll forward
+    motorPi.stop()
+    relay.on()
+    sleep(3)#solenoid opens
 except Exception as e:
     print(e) #prints any errors
 finally: 
