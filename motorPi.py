@@ -43,11 +43,12 @@ try:
     numseeds = int(numseeds)
     for x in range(numseeds): #tested with 4
         relay.on()
-        sleep(3)
+        sleep(4)
         relay.off()
         motorPi.forward(0.6) #moves forward, can be changed from 0-1
-        sleep(3)
-        motorPi.stop() 
+        sleep(0.3)
+        motorPi.stop()
+        sleep(1.5)
 except Exception as e:
     print(e)
 finally:
