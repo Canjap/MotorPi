@@ -41,14 +41,13 @@ try:
     print("connected by {}".format(addr))
     numseeds = conn.recv(1024).decode('utf-8') #saves numseeds as whatever value the server gets from the client/Mycroft Pi
     numseeds = int(numseeds)
-    for x in range(numseeds):
+    for x in range(numseeds): #tested with 4
         relay.on()
-        sleep(4)
+        sleep(3)
         relay.off()
         motorPi.forward(0.6) #moves forward, can be changed from 0-1
-        sleep(2)
+        sleep(3)
         motorPi.stop() 
-    sleep(2)#waits three seconds 
 except Exception as e:
     print(e)
 finally:
