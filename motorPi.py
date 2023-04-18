@@ -18,7 +18,7 @@ motorPi = Robot(
         )
 '''
 sets the Relay HAT as an OutputDevice #(a more general class in gpiozero) and controls pin 26 (BCM, 37 on BOARD).
-active_high = True: if the on() method is called, pin 26 wil be set to HIGH. If this were False, then on() would set the the pin to LOW
+active_high = False: if the on() method is called, pin 26 wil be set to LOW, closing the valve) 
 initial_value = False: the Relay HAT is initially off 
 '''
 relay = OutputDevice(26,
