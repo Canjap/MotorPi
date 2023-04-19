@@ -3,7 +3,7 @@ from gpiozero import Robot
 from gpiozero import OutputDevice
 from time import sleep
 
-HOST = "192.168.1.204" #IP address of the server/MotorPi
+HOST = "127.0.0.1" #IP address of the server/MotorPi
 PORT = 8181 #the specific port to link to
 
 '''
